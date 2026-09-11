@@ -1,2 +1,6 @@
-# ICT_4305
- Respository for Object-Oriented Mthd & Pgm I
+# ICT4305 Object Oriented Programming
+
+## Contributors
+
+- Mike Prasad
+- Natalie Odis-Herrera
