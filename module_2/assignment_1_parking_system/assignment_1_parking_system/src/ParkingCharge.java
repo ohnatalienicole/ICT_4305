@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 import java.time.Instant;
 
 public class ParkingCharge {
@@ -26,4 +26,23 @@ public class ParkingCharge {
             + ", Date: " + incurred
             + ", Amount: " + amount;
     }
+
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof ParkingCharge)) return false;
+
+    ParkingCharge other = (ParkingCharge) obj;
+
+    return Objects.equals(permitId, other.permitId)
+        && Objects.equals(lotId, other.lotId)
+        && Objects.equals(incurred, other.incurred)
+        && Objects.equals(amount, other.amount);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(permitId, lotId, incurred, amount);
+}
 }

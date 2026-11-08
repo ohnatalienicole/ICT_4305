@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,4 +71,18 @@ public class ParkingLot {
                 ", parkedCars=" + parkedCars.size() +
                 '}';
     }
+
+    @Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof ParkingLot)) return false;
+
+    ParkingLot other = (ParkingLot) obj;
+    return Objects.equals(lotId, other.lotId);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(lotId);
+}
 }

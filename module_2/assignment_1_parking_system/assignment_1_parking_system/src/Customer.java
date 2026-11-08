@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,4 +64,18 @@ public class Customer {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof Customer)) return false;
+
+    Customer other = (Customer) obj;
+    return Objects.equals(customerId, other.customerId);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(customerId);
+}
 }

@@ -1,4 +1,4 @@
-
+import java.util.Collection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,4 +74,39 @@ public class ParkingOffice {
     public List<ParkingLot> getLots() {
         return lots;
     }
+
+
+public Collection<String> getCustomerIds() {
+    List<String> customerIds = new ArrayList<>();
+
+    for (Customer customer : customers) {
+        customerIds.add(customer.getCustomerId());
+    }
+
+    return customerIds;
+}
+public Collection<String> getPermitIds() {
+    List<String> permitIds = new ArrayList<>();
+
+    for (Car car : cars) {
+        permitIds.add(car.getPermit());
+    }
+
+    return permitIds;
+}
+public Collection<String> getPermitIds(Customer customer) {
+    List<String> permitIds = new ArrayList<>();
+
+    if (customer == null) {
+        return permitIds;
+    }
+
+    for (Car car : cars) {
+        if (customer.getCustomerId().equals(car.getOwner())) {
+            permitIds.add(car.getPermit());
+        }
+    }
+
+    return permitIds;
+}
 }

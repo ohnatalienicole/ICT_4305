@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.time.LocalDate;
 
 public class Car {
@@ -47,4 +48,19 @@ public class Car {
                 ", owner='" + owner + '\'' +
                 '}';
     }
+
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof Car)) return false;
+
+    Car other = (Car) obj;
+    return Objects.equals(permit, other.permit);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(permit);
+}
 }
