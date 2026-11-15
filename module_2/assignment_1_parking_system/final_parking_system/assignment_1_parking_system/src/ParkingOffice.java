@@ -114,7 +114,11 @@ public class ParkingOffice {
         );
     }
 
-    Money charge = new Money(500);
+    Money charge = new Money(
+    permit.getCar().getType() == CarType.COMPACT
+        ? 400
+        : 500
+);
 
     return transactionManager.park(
         date, permit, lot, charge
